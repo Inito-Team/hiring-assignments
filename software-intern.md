@@ -55,7 +55,7 @@ Your submission will be assessed based on:
 
 * Submit your code in the chosen programming language along with explanations of the implemented functionalities, improvements made to the design, and instructions on how to run and test your program.
 
-* Create a GitHub repo, create a PR with with the changes and email the link to - `prince@inito.com, subham@inito.com, amit@inito.com and adarsh@inito.com`.
+* Create a GitHub repo, create a PR with with the changes and fill the form with the github link and other details - https://forms.gle/9p8KuuqL6gnwqWoy7.
 
 * Along with the link, submit your resume and any other work of yours that you want us to consider.
 
