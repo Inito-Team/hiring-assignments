@@ -18,10 +18,12 @@ if __name__=="__main__":
             case 'mkdir':
                 file_system.mkdir(path)
             case 'cd':
+                temp=path
                 if file_system.cd(path):
-                    for ele in path:
+                    for ele in temp:
                         if ele=="..":
-                            walked_path="\\".join(walked_path.split("\\")[:-1])+"\\"
+                            walked_path="\\".join(walked_path.split("\\")[:-1])
+                            if walked_path=="": walked_path+="\\"
                         else:
                             walked_path+="\\" if walked_path!="\\" else ""
                             walked_path+=ele
@@ -29,5 +31,7 @@ if __name__=="__main__":
                 file_system.ls()
             case 'rm':
                 file_system.rm(path)
+            case "touch":
+                file_system.touch(path)
             case _:
                 print("The command is not recognized. Please use these commands {mkdir, cd, ls, grep, mv, cp, rm, cat, touch, echo}")

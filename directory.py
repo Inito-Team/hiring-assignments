@@ -1,3 +1,4 @@
+from file import File
 
 class Directory:
     def __init__(self, name, parent=None) -> None:
@@ -8,7 +9,7 @@ class Directory:
 
     def add_directory(self, path):
         curr_dir=self
-        walked=""
+
         for new_dir_name in path:
             new_dir=Directory(new_dir_name, parent=curr_dir)
             curr_dir.subdirs[new_dir_name]=new_dir
@@ -43,22 +44,40 @@ class Directory:
         return curr_dir
         
     def list_directories(self, indent=0):
-        print("-"*indent + f"Directory: {self.name}")
+        print("-"*indent + f"Dir: {self.name}")
+
         for subdir_name, subdir in self.subdirs.items():
             subdir.list_directories(indent+1)
         for file_name in self.files:
-            print("-"*(indent+1)+f"filename: {file_name}")
+            print("-"*(indent+1)+f"file: {file_name}")
 
     def remove_directory(self, path):
         curr_dir=self
-        n=len(path)
-        for i in range(n-1):
-            if path[i] in curr_dir.subdirs:
-                # del curr_dir.subdirs[dir_name]
-                curr_dir=curr_dir.subdirs[path[i]]
 
-        if path[n-1] in curr_dir.subdirs:
-            del curr_dir.subdirs[path[n-1]]
+        for dir_name in path[:-1]:
+            if dir_name in curr_dir.subdirs:
+                # del curr_dir.subdirs[dir_name]
+                curr_dir=curr_dir.subdirs[dir_name]
+
+        if path[-1] in curr_dir.subdirs:
+            del curr_dir.subdirs[path[-1]]
         else:
-            print(f"Cannot delete {path[n-1]} because it does not exist.")
+            print(f"Cannot delete {path[-1]} because it does not exist.")
+
+########################################################################################################################
+
+    def add_file(self, path):
+        curr_dir=self
+
+        for dir_name in path[:-1]:
+            if dir_name in curr_dir.subdirs:
+                curr_dir=curr_dir.subdirs[dir_name]
+            else:
+                print(f"Directory {curr_dir.name} not found")
+                return
+
+        file_name=path[-1]
+        new_file=File(file_name)
+        curr_dir.files[file_name]=new_file
+
         

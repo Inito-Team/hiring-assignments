@@ -16,16 +16,6 @@ class FileSystem:
         self.root_dir=self.root_dir.change_directory(path)
         # print(self.root_dir!=temp)
         return self.root_dir!=temp
-        # print(self.root_dir.name)
-        # curr_dir=self
-        # for dir_name in path:
-        #     if dir_name=="..":
-        #         if self.root_dir.parent:
-        #             self.root_dir=self.root_dir.parent
-        #     else:
-        #         changed_dir=curr_dir.root_dir.get_directory(dir_name)
-        #         if changed_dir:
-        #             curr_dir.root_dir=changed_dir
 
     def ls(self, new_dir_name="."):
         self.root_dir.list_directories()
@@ -39,6 +29,13 @@ class FileSystem:
     def cp(self, dir_name, target_dir):
         pass
     ###################################################################################################################################
+
+    def touch(self, path):
+        curr_dir=self.root_dir
+        curr_dir.add_file(path)
+
+    def echo(self, input):
+        pass
 
 
         
