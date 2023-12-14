@@ -7,13 +7,14 @@ if __name__=="__main__":
     file_system=FileSystem()
     walked_path=file_system.root_dir.name
 
-    script=json.loads(sys.argv[1])
+    if len(sys.argv)>1:
+        script=json.loads(sys.argv[1])
 
-    if script['save_state']:
-        file_system.save_state(script['path'])
+        # print("script", script)
 
-    elif script['load_state']:
-        file_system.load_state(script['path'])
+        if script['load_state']:
+            file_system.load_state(script['path'])
+            print("state loaded successfully")
 
     while True:
         command=input(f"curr dir:  {walked_path}>  ").split()
@@ -35,7 +36,9 @@ if __name__=="__main__":
         
         match action:
             case 'exit':
-                file_system.save_state()
+                if len(sys.argv)>1 and script['save_state']:
+                    file_system.save_state(script['path'])
+                    print("state saved successfully")
                 break
             case 'mkdir':
                 file_system.mkdir(path)

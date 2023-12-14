@@ -52,4 +52,4 @@ class FileSystem:
         with open(file_path, 'r') as f:
             load_state_data = json.load(f)
 
-        self.root_dir = Directory.deserialize(load_state_data)
+        self.root_dir = Directory("").deserialize(load_state_data)
