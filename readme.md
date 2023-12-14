@@ -6,7 +6,10 @@ This program uses python str, dictionaries and lists to implement the Directory 
 ## Implementation Details
 
 ### Directory Class
-The `Directory` class represents a directory in the file system. It uses name: str, subdirs: Dictionaries, files: Dictionaries
+The `Directory` class represents a directory in the file system. It has 
+`name` for the name of directories and uses str, 
+`subdirs` for the list of subdirectories and uses Dictionaries, 
+`files` for the list of files and uses Dictionaries
 
 ### FileSystem Class
 The `FileSystem` class serves as an interface for the file system and provides methods to interact with it. It includes methods such as `mkdir`, `cd`, `ls`, `cp`, `mv`, `rm`, `touch`, `cat`, and `echo`.
