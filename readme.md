@@ -25,6 +25,7 @@ The `File` class represents a text file with a name and content. It has a `clone
 
 ## Example Usage
 ```bash
+#FOR running only on BASH
 # if you don't want to load prev state and save curr state
 python main.py '{"save_state": true, "load_state":false, "path": "data.json"}'
 # if you want to load prev state an d save curr state
@@ -35,7 +36,8 @@ python main.py '{"save_state": true, "load_state":true, "path": "data.json"}'
 python main.py
 ```
 
-```cmd
+```bash
+#FOR running only on cmd
 python main.py "{\"save_state\": true, \"load_state\":true,  \"path\": \"data.json\"}"
 ```
 
